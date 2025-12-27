@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSQL Example</title>
+</head>
+<body>
+  <h2>WebSQL Demo</h2>
+  <button onclick="addUser()">Add User</button>
+  <button onclick="showUsers()">Show Users</button>
+
+  <ul id="output"></ul>
+
+  <script>
+    // 1. Open (or create) a database
+    var db = openDatabase(
+      'MyDatabase',      // Database name
+      '1.0',             // Version
+      'Demo DB',         // Description
+      2 * 1024 * 1024    // Size (2MB)
+    );
+
+    // 2. Create a table
+    db.transaction(function (tx) {
+      tx.executeSql(
+        'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)'
+      );
+    });
+
+    // 3. Insert data
+    function addUser() {
+      db.transaction(function (tx) {
+        tx.executeSql(
+          'INSERT INTO users (name) VALUES (?)',
+          ['Alice']
+        );
+      });
+      alert('User added!');
+    }
+
+    // 4. Read data
+    function showUsers() {
+      var list = document.getElementById('output');
+      list.innerHTML = '';
+
+      db.transaction(function (tx) {
+        tx.executeSql(
+          'SELECT * FROM users',
+          [],
+          function (tx, results) {
+            for (var i = 0; i < results.rows.length; i++) {
+              var li = document.createElement('li');
+              li.textContent =
+                results.rows.item(i).id + ': ' +
+                results.rows.item(i).name;
+              list.appendChild(li);
+            }
+          }
+        );
+      });
+    }
+  </script>
+</body>
+</html>

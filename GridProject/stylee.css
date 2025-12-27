@@ -1,0 +1,84 @@
+h2{
+    text-align: center;
+    color: black;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Header styling */
+.header {
+    background-color: #007BFF; /* Blue header */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(3px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Grid items */
+.grid-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for grid items */
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Image styling inside grid items */
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Make sure the grid items are positioned relative */
+.grid-item {
+  position: relative; /* Needed for positioning the badge */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Add the badge using ::after */
+.grid-item::after {
+  content: "20% off"; /* Text of the badge */
+  position: absolute;
+  top: 10px;       /* Distance from top */
+  right: 10px;     /* Distance from right */
+  background-color: red; /* Badge color */
+  color: white;          /* Text color */
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.3); */
+}

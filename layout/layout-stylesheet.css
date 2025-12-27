@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.item{
+    background: lightcoral;
+    padding: 1rem;
+    border: 2px solid;
+}
+
+.item:nth-child(1){
+    background: lightcyan;
+}
+
+.item:nth-child(3){
+    background: lightgray;
+}

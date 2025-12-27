@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileKart Register</title>
+    <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body>
+    <div class="box">
+        <div class="Login header">
+            <h2>Register</h2>
+        </div>
+        <form id="registerForm">
+            <input type="text" placeholder="Enter Username" id="username" required><br><br>
+            <input type="password" placeholder="Enter Password" id="password" required><br><br>
+            <input type="submit" value="Register">
+        </form>
+        <p style="margin-top:15px; font-size:14px;">
+            Already have an account? <a href="login.html">Login here</a>
+        </p>
+    </div>
+
+    <script>
+        const form = document.getElementById('registerForm');
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            let users = JSON.parse(localStorage.getItem('users') || "[]");
+
+            // Check if username already exists
+            if(users.find(u => u.username === username)){
+                alert("Username already taken!");
+                return;
+            }
+
+            users.push({username, password});
+            localStorage.setItem('users', JSON.stringify(users));
+            alert("Registration successful!");
+            window.location.href = "login.html"; // Redirect to login
+        }
+    </script>
+</body>
+</html>
