@@ -1,0 +1,37 @@
+<!-- 
+14. DOM Manipulation – Dynamic UI
+
+You click a button and dynamically add a new list item to <ul>.
+ Which DOM methods will you use?
+ -->
+
+<!-- To dynamically add a new <li> to a <ul> when a button is clicked -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation</title>
+</head>
+<body>
+
+  <ul id="myList">
+  <li>Item 1</li>
+</ul>
+<button id="addBtn">Add Item</button>
+
+<script>
+const button = document.getElementById("addBtn");
+const ul = document.getElementById("myList");
+
+button.addEventListener("click", () => {
+  const li = document.createElement("li"); // 1. Create a new element
+  li.textContent = "New Item";            // 2. Set its content
+  ul.appendChild(li);                     // 3. Add it to the list
+});
+</script>
+
+</body>
+</html>

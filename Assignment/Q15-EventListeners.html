@@ -1,0 +1,52 @@
+<!-- 
+15. Event Listeners – Form Validation
+
+A form should display an error message when submitted without input.
+ Explain how addEventListener() helps. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+<body>
+    <form id="myForm">
+  <input type="text" id="username" placeholder="Enter username">
+  <button type="submit">Submit</button>
+  <p id="error" style="color:red"></p>
+</form>
+
+<script>
+const form = document.getElementById("myForm");
+const input = document.getElementById("username");
+const error = document.getElementById("error");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // prevent page refresh
+  if (input.value === "") {
+    error.textContent = "Please enter a username!";
+  } else {
+    error.textContent = "";
+    alert("Form submitted successfully!");
+  }
+});
+</script>
+
+</body>
+</html>
+
+<!-- 
+Attaches behavior to events – It lets the form “listen” for the submit action.
+
+Prevents default actions – You can stop the form from refreshing the page (event.preventDefault()).
+
+Runs custom validation logic – Checks user input and displays error messages dynamically.
+
+Keeps code organized – Multiple events can be handled without modifying HTML attributes like onsubmit.
+
+Summary:
+addEventListener() is essential for interactive form validation, making the page dynamic and user-friendly.
+-->
