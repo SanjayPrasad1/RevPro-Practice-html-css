@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(lightgreen, lightblue);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.hidden { display: none; }
+
+.card, .quiz-card {
+  background: #fff;
+  padding: 25px;
+  width: 360px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #4e54c8;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: gray;
+}
+
+button:hover:not(:disabled) {
+  background: #3c40a0;
+}
+
+.options button {
+  background: #f1f1f1;
+  color: black;
+  margin: 6px 0;
+}
+
+.options button:hover {
+  background: #ddd;
+}
+
+.correct {
+  background: #4CAF50 !important;
+  color: white;
+}
+
+.wrong {
+  background: #f44336 !important;
+  color: white;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 10px 0 20px;
+}
+
+#progress {
+  height: 100%;
+  width: 0%;
+  background: green;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+#toggle {
+  color: blue;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .card, .quiz-card {
+    width: 90%;
+  }
+}
